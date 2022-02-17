@@ -820,6 +820,14 @@ static const char *dmenucmd[] = {
 	NULL */
 };
 static const char *termcmd[]  = { "alacritty", NULL };
+static const char *volup[] = {"/home/cw/dotfiles/bin/volume-up.sh", NULL };
+static const char *voldown[] = {"/home/cw/dotfiles/bin/volume-down.sh", NULL };
+static const char *voltoggle[] = {"/home/cw/dotfiles/bin/volume-toggle.sh", NULL };
+static const char *captoggle[] = {"/home/cw/dotfiles/bin/capture-toggle.sh", NULL };
+static const char *lightup[] = {"/home/cw/dotfiles/bin/light-up.sh", NULL };
+static const char *lightdown[] = {"/home/cw/dotfiles/bin/light-down.sh", NULL };
+static const char *greenclip[] = {"/home/cw/dotfiles/bin/greenclip.sh", NULL };
+static const char *powermenu[] = {"/home/cw/dotfiles/bin/rofi-power-menu.sh", NULL };
 
 #if BAR_STATUSCMD_PATCH
 #if BAR_DWMBLOCKS_PATCH
@@ -850,6 +858,14 @@ static Key keys[] = {
 	#if KEYMODES_PATCH
 	{ MODKEY,                       XK_Escape,     setkeymode,             {.ui = COMMANDMODE} },
 	#endif // KEYMODES_PATCH
+	{ MODKEY,                       XK_F1,         spawn,                  {.v = voltoggle } },
+	{ MODKEY,                       XK_F2,         spawn,                  {.v = voldown } },
+	{ MODKEY,                       XK_F3,         spawn,                  {.v = volup } },
+	{ MODKEY,                       XK_F4,         spawn,                  {.v = captoggle } },
+	{ MODKEY,                       XK_F5,         spawn,                  {.v = lightdown } },
+	{ MODKEY,                       XK_F6,         spawn,                  {.v = lightup } },
+	{ MODKEY|ShiftMask,             XK_p,          spawn,                  {.v = greenclip } },
+	{ MODKEY|ControlMask,           XK_p,          spawn,                  {.v = powermenu } },
 	{ MODKEY,                       XK_p,          spawn,                  {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return,     spawn,                  {.v = termcmd } },
 	#if RIODRAW_PATCH
